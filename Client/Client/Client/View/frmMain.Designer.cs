@@ -23,8 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Database");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Database");
             this.grpMain = new System.Windows.Forms.GroupBox();
             this.btnSend = new System.Windows.Forms.Button();
             this.txtReceived = new System.Windows.Forms.TextBox();
@@ -33,7 +32,6 @@
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.rdbHTTP = new System.Windows.Forms.RadioButton();
             this.rdbSQL = new System.Windows.Forms.RadioButton();
-            this.tmr1 = new System.Windows.Forms.Timer(this.components);
             this.grpMain.SuspendLayout();
             this.grpPanel.SuspendLayout();
             this.SuspendLayout();
@@ -102,10 +100,10 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.treeView1.Location = new System.Drawing.Point(3, 105);
             this.treeView1.Name = "treeView1";
-            treeNode2.Name = "Nodo0";
-            treeNode2.Text = "Database";
+            treeNode1.Name = "Nodo0";
+            treeNode1.Text = "Database";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2});
+            treeNode1});
             this.treeView1.Size = new System.Drawing.Size(151, 342);
             this.treeView1.TabIndex = 5;
             this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick_1);
@@ -131,10 +129,6 @@
             this.rdbSQL.TabStop = true;
             this.rdbSQL.Text = "SQL";
             this.rdbSQL.UseVisualStyleBackColor = true;
-            // 
-            // tmr1
-            // 
-            this.tmr1.Interval = 1000;
             // 
             // frmMain
             // 
@@ -164,6 +158,5 @@
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.RadioButton rdbHTTP;
         private System.Windows.Forms.RadioButton rdbSQL;
-        private System.Windows.Forms.Timer tmr1;
     }
 }
