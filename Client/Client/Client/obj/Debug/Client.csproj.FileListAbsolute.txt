@@ -9,3 +9,14 @@ C:\Users\M_INF2.Quinta\Desktop\OurSqlServer\Client\Client\Client\obj\Debug\Clien
 C:\Users\M_INF2.Quinta\Desktop\OurSqlServer\Client\Client\Client\obj\Debug\Client.pdb
 C:\Users\M_INF2.Quinta\Desktop\OurSqlServer\Client\Client\Client\obj\Debug\Client.View.frmLogin.resources
 C:\Users\M_INF2.Quinta\Desktop\OurSqlServer\Client\Client\Client\obj\Debug\Client.View.frmMain.resources
+C:\Users\Andrea\Source\Repos\Sirsox1\OurSqlServer_V2\Client\Client\Client\bin\Debug\Client.exe.config
+C:\Users\Andrea\Source\Repos\Sirsox1\OurSqlServer_V2\Client\Client\Client\bin\Debug\Client.exe
+C:\Users\Andrea\Source\Repos\Sirsox1\OurSqlServer_V2\Client\Client\Client\bin\Debug\Client.pdb
+C:\Users\Andrea\Source\Repos\Sirsox1\OurSqlServer_V2\Client\Client\Client\obj\Debug\Client.csprojAssemblyReference.cache
+C:\Users\Andrea\Source\Repos\Sirsox1\OurSqlServer_V2\Client\Client\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\Andrea\Source\Repos\Sirsox1\OurSqlServer_V2\Client\Client\Client\obj\Debug\Client.View.frmLogin.resources
+C:\Users\Andrea\Source\Repos\Sirsox1\OurSqlServer_V2\Client\Client\Client\obj\Debug\Client.View.frmMain.resources
+C:\Users\Andrea\Source\Repos\Sirsox1\OurSqlServer_V2\Client\Client\Client\obj\Debug\Client.csproj.GenerateResource.cache
+C:\Users\Andrea\Source\Repos\Sirsox1\OurSqlServer_V2\Client\Client\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+C:\Users\Andrea\Source\Repos\Sirsox1\OurSqlServer_V2\Client\Client\Client\obj\Debug\Client.exe
+C:\Users\Andrea\Source\Repos\Sirsox1\OurSqlServer_V2\Client\Client\Client\obj\Debug\Client.pdb

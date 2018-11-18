@@ -1,26 +1,36 @@
-﻿using System;
+﻿using Client.Data;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Client.Data;
 
-namespace Client.View {
-    public partial class frmMain : Form {
+namespace Client.View
+{
+    public partial class frmMain : Form
+    {
 
         List<string> schools = new List<string>();
 
-        OurSerialPort srlPort = new OurSerialPort("COM4", 8);
-        public frmMain() {
+        OurSerialPort srlPort = new OurSerialPort("COM101", 8);
+
+        public frmMain()
+        {
             InitializeComponent();
         }
 
-        private void frmMain_Load(object sender, EventArgs e) {
-            srlPort.srl.DataReceived += Srl_DataReceived;
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+
+            try
+            {
+                srlPort.srl.Open();
+                srlPort.srl.DataReceived += Srl_DataReceived;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error");
+            }
+
             treeView1.BeginUpdate();
             treeView1.Nodes[0].Nodes.Add("ISII");
             treeView1.Nodes[0].Nodes.Add("Tramello");
@@ -38,21 +48,22 @@ namespace Client.View {
 
         }
 
-        private void Srl_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e) {
-            txtReceived.Text = srl.ReadExisting();
-            srl.Close();
+        private void Srl_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
+        {
+            txtReceived.AppendText("" + srlPort.srl.ReadExisting() + "");
         }
 
-        private void btnSend_Click(object sender, EventArgs e) {
+        private void btnSend_Click(object sender, EventArgs e)
+        {
             btnSend.Enabled = false;
 
             srlPort.Write(txtQuery.Text);
-
-            tmr1.Start();
         }
 
-        private void treeView1_NodeMouseClick_1(object sender, TreeNodeMouseClickEventArgs e) {
-            if (rdbSQL.Checked) {
+        private void treeView1_NodeMouseClick_1(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            if (rdbSQL.Checked)
+            {
                 // Se il nodo selezionato è una scuola si genera il comando USE + scuola_selezionata.
 
                 if (schools.Any(item => item == e.Node.Text))
@@ -64,6 +75,11 @@ namespace Client.View {
                 else if (e.Node.Text == "Database")
                     txtQuery.Clear();
             }
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            srlPort.srl.Close();
         }
     }
 }
