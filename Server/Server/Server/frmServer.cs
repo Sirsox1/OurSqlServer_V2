@@ -11,8 +11,10 @@ using OurSqlServer.Data;
 using System.IO;
 using System.Data.SqlClient;
 using System.Collections;
+using System.IO.Ports;
 
 namespace Server {
+
     public partial class frmServer : Form {
 
         // Array che conterrà il risultato della query
@@ -29,10 +31,26 @@ namespace Server {
         private void frmServer_Load(object sender, EventArgs e) {
 
 
+            // Impostazione porta server
+
+            srlPortServer.PortName = SerialPort.GetPortNames()[SerialPort.GetPortNames().Length - 1]; // Prende il nome dell'ultima COM presente
+            srlPortServer.BaudRate = 9600;
+            srlPortServer.StopBits = StopBits.One;
+            srlPortServer.DataBits = 8;
+            srlPortServer.Parity = Parity.None;
+            srlPortServer.ReceivedBytesThreshold = 1;
+            srlPortServer.Handshake = Handshake.None;    
+
             tmrTimer.Start();
 
+        }
+
+        private void tmrTimer_Tick(object sender, EventArgs e) {
+
+            txtQueryElaborata.Clear();
+
             // Questo parte è da modifica inserendo la stringa di query dal client
-            txtQuery.Text = "USE rwe SELECT Nome FROM Insegnanti";
+            txtQuery.Text = "USE ISII SELECT * FROM Insegnanti";
             myquery = txtQuery.Text;
 
             //Se la stringa contenente la query non è vuota, la divide in parti
@@ -40,23 +58,15 @@ namespace Server {
                 //Serve per catturare il nome del database sul quale scateno la query
                 parts = myquery.Split(' ');
             } else {
-                MessageBox.Show("Error 9, query not found!");
+                txtErrorReport.Text = "Query non trovata!";
             }
 
-        }
-
-        private void txtQuery_TextChanged(object sender, EventArgs e) {
-
-        }
-
-        private void tmrTimer_Tick(object sender, EventArgs e) {
-
-
-        }
-
-        private void button1_Click(object sender, EventArgs e) {
-
             try {
+
+                // Se la porta server non è aperta, la apro
+                if (!srlPortServer.IsOpen)
+                    srlPortServer.Open();
+
                 // Se la stringa contenente la query non è vuota prosegue
                 if (myquery != "") {
 
@@ -106,34 +116,61 @@ namespace Server {
 
 
                     }
-                } else
-                    MessageBox.Show("Errore fatale, query non trovata!");
-            } catch {
-                if (parts[1] != "ISII" && parts[1] != "TRAMELLO")
-                    MessageBox.Show("Errore sintassi, controllare il database scelto!");
+                }
+
+
+            } catch (Exception ex) {
+
+
+                // Gestione delle eccezioni che si scatenano quando stacco il cavo con app running / cerco di accedere alla porta quando un'altra app la sta usando
+                if (ex is System.IO.IOException)
+                    txtErrorReport.Text = "Errore fatale, si è persa la connessione con la porta : " + srlPortServer.PortName;
+                else if (ex is System.UnauthorizedAccessException)
+                    txtErrorReport.Text = "Errore, la porta : " + srlPortServer.PortName + " è usata da un'altra applicazione!";
                 else
-                    MessageBox.Show("Errore sintassi SQL, controllare la query!");
+                    txtErrorReport.Text = "Errore sintassi SQL, controllare la query!";
+
+                if (parts[1] != "ISII" && parts[1] != "TRAMELLO")
+                    txtErrorReport.Text = "Errore sintassi, controllare il database scelto!";             
+
             } finally {
 
             }
 
-        }
 
-        private void button2_Click(object sender, EventArgs e) {
-
-
-            // In mancanza di RS232 questo button mi serviva per vedere se fungeva il tutto
             for (int i = 0; i < resultquery.GetLength(0); i++) {
-
                 for (int j = 0; j < resultquery.GetLength(1); j++) {
-
-                    txtQueryElaborata.Text += resultquery[i, j].ToString();
+                    txtQueryElaborata.Text += resultquery[i, j];
                 }
-
-                txtQueryElaborata.Text += "\r\n";
+                txtQueryElaborata.Text += "\r\t";
             }
+            
+
         }
 
+        private void btnStopServer_Click(object sender, EventArgs e) {
 
+
+            // Invia al client un codice specifico (es. "####" ) per avvisarlo che il server è down
+
+            srlPortServer.WriteLine("####");
+        }
+
+        private void btnStartServer_Click(object sender, EventArgs e) {
+
+            // Invia al client un codice specifico (es. "@@@@" ) per avvisarlo che il server è running
+
+            srlPortServer.WriteLine("####");
+        }
+
+        private void frmServer_FormClosing(object sender, FormClosingEventArgs e) {
+
+            srlPortServer.Close();
+        }
+
+        private void txtQuery_TextChanged(object sender, EventArgs e) {
+
+         
+        }
     }
 }
