@@ -5,8 +5,10 @@
     "\\Client\\Client",
     "\\Server",
     "\\Server\\Server",
-    "\\Server\\Server\\Server"
+    "\\Server\\Server\\Server",
+    "\\Server\\Server\\Server\\DB",
+    "\\Server\\Server\\Server\\Library"
   ],
-  "SelectedNode": "\\Client\\Client\\Client.sln",
+  "SelectedNode": "\\Server\\Server\\Server\\DB",
   "PreviewInSolutionExplorer": false
 }
