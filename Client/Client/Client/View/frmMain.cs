@@ -21,6 +21,10 @@ namespace Client.View
         private void frmMain_Load(object sender, EventArgs e)
         {
             prg1.Visible = false;
+            btnSend.Enabled = false;
+            btnStatus.BackColor = System.Drawing.Color.Red;
+            btnStatus.Text = "STOPPED";
+
             try
             {
                 srlPort.srl.Open();
@@ -51,8 +55,25 @@ namespace Client.View
         private void Srl_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
             prg1.Visible = false;
-            btnSend.Enabled = true;
-            txtReceived.AppendText("" + srlPort.srl.ReadExisting() + "");
+
+            string mex = srlPort.srl.ReadExisting();
+            if ("####" == mex)
+            {
+                btnSend.Enabled = false ;
+                btnStatus.BackColor = System.Drawing.Color.Red;
+                btnStatus.Text = "STOPPED";
+            }
+            else if ("@@@@" == mex)
+            {
+                btnSend.Enabled = true;
+                btnStatus.BackColor = System.Drawing.Color.Lime;
+                btnStatus.Text = "RUNNING";
+            }
+            else
+            {
+                btnSend.Enabled = true;
+                txtReceived.AppendText("" + mex + "");
+            }
         }
 
         private void btnSend_Click(object sender, EventArgs e)

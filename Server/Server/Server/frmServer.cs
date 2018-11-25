@@ -19,6 +19,8 @@ namespace Server
         private void frmServer_Load(object sender, EventArgs e)
         {
             prg1.Visible = false;
+            btnStopServer.Enabled = false;
+            btnStopServer.BackColor = System.Drawing.Color.Gray;
             try
             {
                 srlPort.srl.Open();
@@ -45,7 +47,10 @@ namespace Server
 
         private void btnStopServer_Click(object sender, EventArgs e)
         {
-
+            btnStartServer.Enabled = true;
+            btnStartServer.BackColor = System.Drawing.Color.Lime;
+            btnStopServer.Enabled = false;
+            btnStopServer.BackColor = System.Drawing.Color.Gray;
             // Invia al client un codice specifico (es. "####" ) per avvisarlo che il server è down
 
             srlPort.Write("####");
@@ -53,6 +58,10 @@ namespace Server
 
         private void btnStartServer_Click(object sender, EventArgs e)
         {
+            btnStartServer.Enabled = false;
+            btnStartServer.BackColor = System.Drawing.Color.Gray;
+            btnStopServer.Enabled = true;
+            btnStopServer.BackColor = System.Drawing.Color.Red;
 
             // Invia al client un codice specifico (es. "@@@@" ) per avvisarlo che il server è running
 
