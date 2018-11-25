@@ -33,6 +33,8 @@ namespace Client.Data
             if (!srl.IsOpen)
                 srl.Open();
 
+            Mex = Mex.Replace("\r\n", " ");
+
             srl.Write(Mex);
         }
     }

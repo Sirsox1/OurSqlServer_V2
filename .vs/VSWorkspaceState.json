@@ -1,10 +1,15 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Client",
+    "\\Client\\Client",
+    "\\Client\\Client\\Client",
+    "\\Client\\Client\\Client\\Data",
     "\\Server",
     "\\Server\\Server",
-    "\\Server\\Server\\Server"
+    "\\Server\\Server\\Server",
+    "\\Server\\Server\\Server\\Library"
   ],
-  "SelectedNode": "\\Server",
+  "SelectedNode": "\\Client\\Client\\Client\\Data\\OurSerialPort.cs",
   "PreviewInSolutionExplorer": false
 }

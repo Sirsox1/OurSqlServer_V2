@@ -20,8 +20,6 @@ namespace Server.Library
             //Se la stringa contenente la query non è vuota, la divide in parti
             if (myquery != "")
             {
-                myquery = myquery.Replace('\n', ' ');
-                myquery = myquery.Remove('\r');
                 //Serve per catturare il nome del database sul quale scateno la query
                 parts = myquery.Split(' ');
             }
@@ -94,6 +92,7 @@ namespace Server.Library
             }
             catch (Exception ex)
             {
+
                 // Gestione delle eccezioni che si scatenano quando stacco il cavo con app running / cerco di accedere alla porta quando un'altra app la sta usando
                 if (ex is System.IO.IOException)
                 {
@@ -112,8 +111,7 @@ namespace Server.Library
                 }
                 else
                 {
-                    txtErrorReport = "Errore sintassi SQL, controllare la query!";
-                    return txtErrorReport;
+                    return ex.Message;
                 }
             }
 
