@@ -25,6 +25,9 @@ namespace Client.View
             btnStatus.BackColor = System.Drawing.Color.Red;
             btnStatus.Text = "STOPPED";
 
+
+            CheckForIllegalCrossThreadCalls = false;
+
             try
             {
                 srlPort.srl.Open();
@@ -32,7 +35,12 @@ namespace Client.View
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Error");
+                if (ex is System.UnauthorizedAccessException)
+                    txtReceived.Text = "Porta già in uso da un'altra applicazione";
+                else if (ex is System.IO.IOException)
+                    txtReceived.Text = "Connessione persa con la porta : " + srlPort.PortName;
+                else
+                    txtReceived.Text = "Errore!";
             }
 
             treeView1.BeginUpdate();
@@ -92,8 +100,9 @@ namespace Client.View
                 if (schools.Any(item => item == e.Node.Text))
                     txtQuery.Text = "USE " + e.Node.Text;
 
-                else if (e.Node.Text != "Database") // Andrea 2018-11-09: Realizzazione della query completa. 'use nDB select * from nTab'.
-                    txtQuery.Text = "USE " + e.Node.Parent.Text + "\r\nSELECT *\r\nFROM " + e.Node.Text; // Andrea 2018-11-09: Sono mongolo e non riesco ad andare a capo. Andrea 2018-11-12: Risolto con '\r\n'.
+                // Andrea 2018-11-09: Realizzazione della query completa. 'use nDB select * from nTab'.
+                else if (e.Node.Text != "Database") 
+                    txtQuery.Text = "USE " + e.Node.Parent.Text + "\r\nSELECT *\r\nFROM " + e.Node.Text; 
 
                 else if (e.Node.Text == "Database")
                     txtQuery.Clear();
@@ -103,6 +112,10 @@ namespace Client.View
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             srlPort.srl.Close();
+        }
+
+        private void prg1_Click(object sender, EventArgs e) {
+
         }
     }
 }

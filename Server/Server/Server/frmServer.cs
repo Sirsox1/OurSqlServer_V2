@@ -28,7 +28,12 @@ namespace Server
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Error");
+                if (ex is System.UnauthorizedAccessException)
+                    txtQueryElaborata.Text = "Porta già in uso in un'altra applicazione!";
+                else if (ex is System.IO.IOException)
+                    txtQueryElaborata.Text = "Connessione persa con la porta : " + srlPort.PortName;
+                else
+                    txtQueryElaborata.Text = "Errore!";
             }
         }
 

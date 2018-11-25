@@ -3,12 +3,9 @@
     "",
     "\\Client",
     "\\Client\\Client",
-    "\\Client\\Client\\Client",
-    "\\Client\\Client\\Client\\Data",
     "\\Server",
     "\\Server\\Server",
-    "\\Server\\Server\\Server",
-    "\\Server\\Server\\Server\\Library"
+    "\\Server\\Server\\Server"
   ],
   "SelectedNode": "\\Client\\Client\\Client.sln",
   "PreviewInSolutionExplorer": false

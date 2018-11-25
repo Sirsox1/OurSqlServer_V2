@@ -23,7 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Database");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Database");
             this.grpMain = new System.Windows.Forms.GroupBox();
             this.prg1 = new System.Windows.Forms.ProgressBar();
             this.btnSend = new System.Windows.Forms.Button();
@@ -46,28 +46,29 @@
             this.grpMain.Controls.Add(this.txtQuery);
             this.grpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.grpMain.Location = new System.Drawing.Point(209, 0);
-            this.grpMain.Margin = new System.Windows.Forms.Padding(4);
+            this.grpMain.Location = new System.Drawing.Point(157, 0);
             this.grpMain.Name = "grpMain";
             this.grpMain.Padding = new System.Windows.Forms.Padding(0);
-            this.grpMain.Size = new System.Drawing.Size(858, 554);
+            this.grpMain.Size = new System.Drawing.Size(643, 450);
             this.grpMain.TabIndex = 10;
             this.grpMain.TabStop = false;
             // 
             // prg1
             // 
-            this.prg1.Location = new System.Drawing.Point(528, 147);
+            this.prg1.Location = new System.Drawing.Point(450, 115);
+            this.prg1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.prg1.Name = "prg1";
-            this.prg1.Size = new System.Drawing.Size(179, 31);
+            this.prg1.Size = new System.Drawing.Size(134, 25);
             this.prg1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.prg1.TabIndex = 11;
+            this.prg1.Click += new System.EventHandler(this.prg1_Click);
             // 
             // btnSend
             // 
-            this.btnSend.Location = new System.Drawing.Point(141, 130);
-            this.btnSend.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSend.Location = new System.Drawing.Point(244, 115);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(232, 60);
+            this.btnSend.Size = new System.Drawing.Size(174, 49);
             this.btnSend.TabIndex = 1;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
@@ -76,22 +77,22 @@
             // txtReceived
             // 
             this.txtReceived.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtReceived.Location = new System.Drawing.Point(0, 219);
-            this.txtReceived.Margin = new System.Windows.Forms.Padding(4);
+            this.txtReceived.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtReceived.Location = new System.Drawing.Point(0, 183);
             this.txtReceived.Multiline = true;
             this.txtReceived.Name = "txtReceived";
-            this.txtReceived.Size = new System.Drawing.Size(858, 335);
+            this.txtReceived.Size = new System.Drawing.Size(643, 267);
             this.txtReceived.TabIndex = 2;
             // 
             // txtQuery
             // 
             this.txtQuery.AcceptsReturn = true;
             this.txtQuery.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtQuery.Location = new System.Drawing.Point(0, 15);
-            this.txtQuery.Margin = new System.Windows.Forms.Padding(4);
+            this.txtQuery.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuery.Location = new System.Drawing.Point(0, 13);
             this.txtQuery.Multiline = true;
             this.txtQuery.Name = "txtQuery";
-            this.txtQuery.Size = new System.Drawing.Size(858, 102);
+            this.txtQuery.Size = new System.Drawing.Size(643, 80);
             this.txtQuery.TabIndex = 0;
             // 
             // grpPanel
@@ -104,20 +105,20 @@
             this.grpPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.grpPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.grpPanel.Location = new System.Drawing.Point(0, 0);
-            this.grpPanel.Margin = new System.Windows.Forms.Padding(4);
             this.grpPanel.Name = "grpPanel";
-            this.grpPanel.Padding = new System.Windows.Forms.Padding(4);
-            this.grpPanel.Size = new System.Drawing.Size(209, 554);
+            this.grpPanel.Size = new System.Drawing.Size(157, 450);
             this.grpPanel.TabIndex = 9;
             this.grpPanel.TabStop = false;
-            this.grpPanel.Text = "Panel";
+            this.grpPanel.Text = "Explore Panel";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 63);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(35, 77);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 17);
+            this.label1.Size = new System.Drawing.Size(82, 16);
             this.label1.TabIndex = 7;
             this.label1.Text = "Stato Server";
             // 
@@ -125,9 +126,11 @@
             // 
             this.btnStatus.Enabled = false;
             this.btnStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStatus.Location = new System.Drawing.Point(104, 53);
+            this.btnStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStatus.Location = new System.Drawing.Point(12, 97);
+            this.btnStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnStatus.Name = "btnStatus";
-            this.btnStatus.Size = new System.Drawing.Size(101, 37);
+            this.btnStatus.Size = new System.Drawing.Size(140, 30);
             this.btnStatus.TabIndex = 6;
             this.btnStatus.UseVisualStyleBackColor = true;
             // 
@@ -135,24 +138,24 @@
             // 
             this.treeView1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.treeView1.Location = new System.Drawing.Point(4, 130);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(4);
+            this.treeView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeView1.Location = new System.Drawing.Point(3, 151);
             this.treeView1.Name = "treeView1";
-            treeNode2.Name = "Nodo0";
-            treeNode2.Text = "Database";
+            treeNode3.Name = "Nodo0";
+            treeNode3.Text = "Database";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2});
-            this.treeView1.Size = new System.Drawing.Size(201, 420);
+            treeNode3});
+            this.treeView1.Size = new System.Drawing.Size(151, 296);
             this.treeView1.TabIndex = 5;
             this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick_1);
             // 
             // rdbSQL
             // 
             this.rdbSQL.AutoSize = true;
-            this.rdbSQL.Location = new System.Drawing.Point(13, 23);
-            this.rdbSQL.Margin = new System.Windows.Forms.Padding(4);
+            this.rdbSQL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbSQL.Location = new System.Drawing.Point(12, 33);
             this.rdbSQL.Name = "rdbSQL";
-            this.rdbSQL.Size = new System.Drawing.Size(57, 21);
+            this.rdbSQL.Size = new System.Drawing.Size(61, 24);
             this.rdbSQL.TabIndex = 3;
             this.rdbSQL.TabStop = true;
             this.rdbSQL.Text = "SQL";
@@ -160,14 +163,13 @@
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.grpMain);
             this.Controls.Add(this.grpPanel);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMain";
-            this.Text = "frmMain";
+            this.Text = "CLIENT";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.grpMain.ResumeLayout(false);

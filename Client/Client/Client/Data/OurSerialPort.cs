@@ -19,10 +19,11 @@ namespace Client.Data
             srl.StopBits = StopBits.One;
         }
         public OurSerialPort(string name, int data)
-        { // Andrea 2018-11-12: Modifica solo del nome e della quantità di bit.
+        { 
+            // Andrea 2018-11-12: Modifica solo del nome e della quantità di bit.
 
             srl.PortName = name;
-            //srl.DataBits = data;
+            srl.DataBits = data;
             //srl.BaudRate = 9600;
             //srl.Parity = Parity.Even;
             //srl.StopBits = StopBits.One;
@@ -34,7 +35,6 @@ namespace Client.Data
                 srl.Open();
 
             Mex = Mex.Replace("\r\n", " ");
-
             srl.Write(Mex);
         }
     }

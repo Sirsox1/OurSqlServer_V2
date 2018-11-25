@@ -43,7 +43,6 @@ namespace Server.Library
 
                         // Per poter eseguire il comando Sql, passo la query e la stringa di connessione
                         SqlCommand command = new SqlCommand(myquery, connection);
-                        //command.Parameters.AddWithValue("@tPatSName", "Your-Parm-Value");
                         // Apro la connessione
                         connection.Open();
 
@@ -69,15 +68,10 @@ namespace Server.Library
                         {
                             while (reader.Read())
                             {
-
                                 for (int j = 0; j < myresult.GetLength(1); j++)
-                                {
-
                                     myresult[cont, j] = reader.GetValue(j).ToString();
-                                }
 
                                 cont++;
-
                             }
                         }
                         finally
