@@ -20,7 +20,7 @@ namespace Client.View
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-
+            prg1.Visible = false;
             try
             {
                 srlPort.srl.Open();
@@ -50,13 +50,15 @@ namespace Client.View
 
         private void Srl_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
+            prg1.Visible = false;
+            btnSend.Enabled = true;
             txtReceived.AppendText("" + srlPort.srl.ReadExisting() + "");
         }
 
         private void btnSend_Click(object sender, EventArgs e)
         {
             btnSend.Enabled = false;
-
+            prg1.Visible = true;
             srlPort.Write(txtQuery.Text);
         }
 

@@ -18,6 +18,7 @@ namespace Server
 
         private void frmServer_Load(object sender, EventArgs e)
         {
+            prg1.Visible = false;
             try
             {
                 srlPort.srl.Open();
@@ -33,10 +34,12 @@ namespace Server
         {
             string myquery = srlPort.srl.ReadExisting();
             txtQuery.AppendText("" + myquery + "");
+            prg1.Visible = true;
 
             string response = MyLibrary.Decode(myquery, srlPort.srl.PortName);
 
-            txtQueryElaborata.Text= response;
+            prg1.Visible = false;
+            txtQueryElaborata.Text = response;
             srlPort.Write(response);
         }
 
@@ -60,12 +63,6 @@ namespace Server
         {
 
             srlPort.srl.Close();
-        }
-
-        private void txtQuery_TextChanged(object sender, EventArgs e)
-        {
-
-
         }
     }
 }

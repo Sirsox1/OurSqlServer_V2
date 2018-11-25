@@ -28,6 +28,7 @@
             this.btnStopServer = new System.Windows.Forms.Button();
             this.btnStartServer = new System.Windows.Forms.Button();
             this.txtErrorReport = new System.Windows.Forms.TextBox();
+            this.prg1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // txtQuery
@@ -41,7 +42,6 @@
             this.txtQuery.Name = "txtQuery";
             this.txtQuery.Size = new System.Drawing.Size(635, 74);
             this.txtQuery.TabIndex = 0;
-            this.txtQuery.TextChanged += new System.EventHandler(this.txtQuery_TextChanged);
             // 
             // txtQueryElaborata
             // 
@@ -91,11 +91,20 @@
             this.txtErrorReport.Size = new System.Drawing.Size(635, 67);
             this.txtErrorReport.TabIndex = 9;
             // 
+            // prg1
+            // 
+            this.prg1.Location = new System.Drawing.Point(16, 100);
+            this.prg1.Name = "prg1";
+            this.prg1.Size = new System.Drawing.Size(164, 23);
+            this.prg1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.prg1.TabIndex = 10;
+            // 
             // frmServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(847, 554);
+            this.Controls.Add(this.prg1);
             this.Controls.Add(this.txtErrorReport);
             this.Controls.Add(this.btnStartServer);
             this.Controls.Add(this.btnStopServer);
@@ -118,6 +127,7 @@
         private System.Windows.Forms.Button btnStopServer;
         private System.Windows.Forms.Button btnStartServer;
         private System.Windows.Forms.TextBox txtErrorReport;
+        private System.Windows.Forms.ProgressBar prg1;
     }
 }
 
