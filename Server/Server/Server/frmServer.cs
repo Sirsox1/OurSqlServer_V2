@@ -56,6 +56,7 @@ namespace Server
             btnStartServer.BackColor = System.Drawing.Color.Lime;
             btnStopServer.Enabled = false;
             btnStopServer.BackColor = System.Drawing.Color.Gray;
+
             // Invia al client un codice specifico (es. "####" ) per avvisarlo che il server è down
 
             srlPort.Write("####");
@@ -75,7 +76,8 @@ namespace Server
 
         private void frmServer_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            srlPort.Write("####");
+            System.Threading.Thread.Sleep(1000);
             srlPort.srl.Close();
         }
     }

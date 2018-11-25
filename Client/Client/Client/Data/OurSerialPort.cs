@@ -4,15 +4,14 @@ namespace Client.Data
 {
     class OurSerialPort
     {
-
         public SerialPort srl = new SerialPort();
-        public string PortName { get => PortName; set => PortName = value; }
-        public int DataBits { get => DataBits; set => DataBits = value; }
+        public string PortName { get; set; }
+        public int DataBits { get; set; }
 
 
         public OurSerialPort()
         {
-            srl.PortName = "COM100";
+            srl.PortName = "";
             srl.BaudRate = 9600;
             srl.DataBits = 8;
             srl.Parity = Parity.Even;
@@ -24,9 +23,9 @@ namespace Client.Data
 
             srl.PortName = name;
             srl.DataBits = data;
-            //srl.BaudRate = 9600;
-            //srl.Parity = Parity.Even;
-            //srl.StopBits = StopBits.One;
+            srl.BaudRate = 9600;
+            srl.Parity = Parity.Even;
+            srl.StopBits = StopBits.One;
         }
 
         public void Write(string Mex)
@@ -34,7 +33,7 @@ namespace Client.Data
             if (!srl.IsOpen)
                 srl.Open();
 
-            Mex = Mex.Replace("\r\n", " ");
+            Mex = Mex.Replace("\r\n", " "); // Andrea 2018-11-26: Pulizia della stringa
             srl.Write(Mex);
         }
     }

@@ -113,9 +113,5 @@ namespace Client.View
         {
             srlPort.srl.Close();
         }
-
-        private void prg1_Click(object sender, EventArgs e) {
-
-        }
     }
 }

@@ -4,15 +4,14 @@ namespace Server.Data
 {
     class OurSerialPort
     {
-
         public SerialPort srl = new SerialPort();
-        public string PortName { get => PortName; set => PortName = value; }
-        public int DataBits { get => DataBits; set => DataBits = value; }
+        public string PortName { get; set; }
+        public int DataBits { get; set; }
 
 
         public OurSerialPort()
         {
-            srl.PortName = "COM100";
+            srl.PortName = "";
             srl.BaudRate = 9600;
             srl.DataBits = 8;
             srl.Parity = Parity.Even;
@@ -22,10 +21,10 @@ namespace Server.Data
         { // Andrea 2018-11-12: Modifica solo del nome e della quantità di bit.
 
             srl.PortName = name;
-            //srl.DataBits = data;
-            //srl.BaudRate = 9600;
-            //srl.Parity = Parity.Even;
-            //srl.StopBits = StopBits.One;
+            srl.DataBits = data;
+            srl.BaudRate = 9600;
+            srl.Parity = Parity.Even;
+            srl.StopBits = StopBits.One;
         }
 
         public void Write(string Mex)

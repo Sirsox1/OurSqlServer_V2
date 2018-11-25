@@ -61,7 +61,6 @@
             this.prg1.Size = new System.Drawing.Size(134, 25);
             this.prg1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.prg1.TabIndex = 11;
-            this.prg1.Click += new System.EventHandler(this.prg1_Click);
             // 
             // btnSend
             // 

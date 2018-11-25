@@ -61,12 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Insegnanti.cs" />
-    <Compile Include="Data\ISII.cs" />
     <Compile Include="Data\OurSerialPort.cs" />
-    <Compile Include="Data\Persona.cs" />
-    <Compile Include="Data\Studenti.cs" />
-    <Compile Include="Data\Tramello.cs" />
     <Compile Include="frmServer.cs">
       <SubType>Form</SubType>
     </Compile>
