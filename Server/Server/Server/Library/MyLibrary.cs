@@ -36,7 +36,7 @@ namespace Server.Library
 
                     /* Stringa che mi permette di conettermi al server sul quale è possibile interagire con i DB. 
                     In altre parole è l'istanza di MySql sulla quale ho memorizzato i DB. */
-                    string connectionString = "Server=DESKTOP-BOGNLK2\\FLORINMOCANU;Database=" + parts[1] + ";" + "Trusted_Connection=True;MultipleActiveResultSets=true;";
+                    string connectionString = "Server=C215-025\\MSSQL14.MSSQLSERVER;Database=" + parts[1] + ";" + "Trusted_Connection=True;MultipleActiveResultSets=true;";
 
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     {

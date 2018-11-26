@@ -8,7 +8,7 @@
     "\\Server",
     "\\Server\\Server",
     "\\Server\\Server\\Server",
-    "\\Server\\Server\\Server\\Library"
+    "\\Server\\Server\\Server\\Data"
   ],
   "SelectedNode": "\\Client\\Client\\Client.sln",
   "PreviewInSolutionExplorer": false

@@ -9,7 +9,7 @@ namespace Server
     public partial class frmServer : Form
     {
 
-        OurSerialPort srlPort = new OurSerialPort("COM100", 8);
+        OurSerialPort srlPort = new OurSerialPort("COM4", 8);
 
         public frmServer()
         {
@@ -40,7 +40,8 @@ namespace Server
         private void Srl_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
             string myquery = srlPort.srl.ReadExisting();
-            txtQuery.AppendText("" + myquery + "");
+
+            txtQuery.Text = myquery;
             prg1.Visible = true;
 
             string response = MyLibrary.Decode(myquery, srlPort.srl.PortName);

@@ -11,7 +11,7 @@ namespace Client.View
 
         List<string> schools = new List<string>();
 
-        OurSerialPort srlPort = new OurSerialPort("COM101", 8);
+        OurSerialPort srlPort = new OurSerialPort("COM3", 8);
 
         public frmMain()
         {
@@ -65,6 +65,7 @@ namespace Client.View
             prg1.Visible = false;
 
             string mex = srlPort.srl.ReadExisting();
+
             if ("####" == mex)
             {
                 btnSend.Enabled = false ;
@@ -80,7 +81,7 @@ namespace Client.View
             else
             {
                 btnSend.Enabled = true;
-                txtReceived.AppendText("" + mex + "");
+                txtReceived.Text = mex;
             }
         }
 
